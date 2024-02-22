@@ -46,6 +46,7 @@ test:
 about:
   home: https://github.com/google/yapf
   license: Apache-2.0 AND EPL-2.0
+  license_family: Apache
   license_file:
     - LICENSE
     - third_party/yapf_third_party/yapf_diff/LICENSE
