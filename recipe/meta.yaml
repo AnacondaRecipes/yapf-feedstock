@@ -39,7 +39,7 @@ test:
     - pip check
     - yapf --help
     - yapf-diff --help
-    - python -m unittest discover -p '*_test.py' yapftests/
+    - python -m unittest discover -p '*_test.py' yapftests/ # [not win] tests failed to be discovered on windows...
   requires:
     - pip
 
