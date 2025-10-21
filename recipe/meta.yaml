@@ -1,6 +1,6 @@
 {% set name = "yapf" %}
-{% set version = "0.40.2" %}
-{% set sha256 = "8e0825803c488aa2cb118ed277a18d4617984608e75d10d5bffa5e24734eb022" %}
+{% set version = "0.43.0" %}
+{% set sha256 = "1d8ca9d7e1fc429c496e0a046e509e437d5ae766487b0394c45fc1fdf253b5d4" %}
 
 package:
   name: {{ name }}
@@ -16,19 +16,19 @@ build:
     - yapf-diff = yapf_third_party.yapf_diff.yapf_diff:main
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  skipt: true # [py<37]
+  skipt: true  # [py<37]
+  skip: true  # [py<37]
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - setuptools >=58.5.0
   run:
     - python
     - importlib-metadata >=6.6.0
     - platformdirs >=3.5.1
-    - tomli >=2.0.1
+    - tomli >=2.0.1  # [py<311]
 
 test:
   source_files:
@@ -39,7 +39,7 @@ test:
     - pip check
     - yapf --help
     - yapf-diff --help
-    - python -m unittest discover -p '*_test.py' yapftests/ # [not win] tests failed to be discovered on windows...
+    - python -m unittest discover -p '*_test.py' yapftests/  # [not win] tests failed to be discovered on windows...
   requires:
     - pip
 
